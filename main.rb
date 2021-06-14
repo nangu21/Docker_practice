@@ -1,13 +1,13 @@
-require 'webrick'
+#require 'webrick'
 
-server = WEBrick::HTTPServer.new(
-    DocumentRoot: './',
-    BindAddres: '0.0.0.0',
-    Port: 8000
-)
+#server = WEBrick::HTTPServer.new(
+ #   DocumentRoot: './',
+  #  BindAddres: '0.0.0.0',
+   # Port: 8000
+#)
 
-server.mount_proc('/') do |req, res|
-    res.body = 'Hello!'
-end
+#server.mount_proc('/') do |req, res|
+ #   res.body = 'Hello!'
+#end
 
-server.start
+#server.start
