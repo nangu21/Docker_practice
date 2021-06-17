@@ -155,7 +155,7 @@ $ docker run --rm -it xaviervia/pokemonsay 'Hello World!'
 ![スクリーンショット 2021-06-16 18.56.06.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1645942/fe85cb79-4cc9-288b-c25a-0ba5db4bf9e7.png)
 
 # Chapter6 シンプルWebアプリケーションを作成する回
-第5章と同じく、Pythonファイルのインデントと導入するライブラリのバージョンに気を付けないとエラーが出る。個人的に`redis`と`radis`のスペルミス沼にハマってしまった。
+第5章と同じく、Pythonファイルのインデントと導入するライブラリのバージョンに気を付けないとエラーが出る。あと`redis`と`radis`のスペルミス沼にハマってしまった。<br>
 (メモ)Dockerfileとdocker-composer.ymlでライブラリのバージョン表記が違うのは、前者はPython用のクライアントライブラリ、後者はコンテナ(サービス)とそれぞれインストールしているものが違うから。
 
 ```Dockerfile:Dockerfile
@@ -175,6 +175,7 @@ redis:
 redis:
     image: redis:latest
 ```
+入力情報から一意にモンスターを生成してくれるRESTfulAPI「dnmonster」を使用したサンプルだった。かわいい:spaceinvador::spaceinvador:<br>
 ![出力結果](dnmonster.JPG)
 
 # 参考
