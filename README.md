@@ -175,7 +175,7 @@ redis:
 redis:
     image: redis:latest
 ```
-入力情報から一意にモンスターを生成してくれるRESTfulAPI「dnmonster」を使用したサンプルだった。かわいい:spaceinvador::spaceinvador:<br>
+入力情報から一意にモンスターを生成してくれるAPI「dnmonster」を使用したサンプルでした。かわいい:space_invader::space_invader:<br>
 ![出力結果](dnmonster.JPG)
 
 # 参考
