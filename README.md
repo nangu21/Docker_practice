@@ -175,7 +175,7 @@ redis:
 redis:
     image: redis:latest
 ```
-![出力結果](dnmonster.jpg)
+![出力結果](dnmonster.JPG)
 
 # 参考
 
