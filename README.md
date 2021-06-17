@@ -37,7 +37,7 @@ $ docker run test/cowsay-dockerfile /usr/games/cowsay "Moo"
 ```
 
 # Chapter5.1 "Hello, World!"出力する回
-そのまま書き写すと、2行目で`IndentationError`が出ます。`Python`は括弧(){}の代わりにインデントでコードをグルーピングする言語なので、タブ・スペースのズレは気を付けないといけない。
+そのまま書き写すと、2行目で`IndentationError`が出る。`Python`は括弧(){}の代わりにインデントでコードをグルーピングする言語なので、タブ・スペースのズレは気を付けないといけない。
 
 ```python:identidock.py
 # 誤
@@ -151,8 +151,31 @@ root@cowsay:/# /usr/games/fortune | /usr/games/cowsay -f tux
 ```terminal:terminal
 $ docker run --rm -it xaviervia/pokemonsay 'Hello World!'
 ```
-ランダムでポケモンが出てきた。かわいい:fire::fire:
+ランダムでポケモンが出てきた。かわいい:fire::fire:<br>
 ![スクリーンショット 2021-06-16 18.56.06.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1645942/fe85cb79-4cc9-288b-c25a-0ba5db4bf9e7.png)
+
+# Chapter6 シンプルWebアプリケーションを作成する回
+第5章と同じく、Pythonファイルのインデントと導入するライブラリのバージョンに気を付けないとエラーが出る。個人的に`redis`と`radis`のスペルミス沼にハマってしまった。
+(メモ)Dockerfileとdocker-composer.ymlでライブラリのバージョン表記が違うのは、前者はPython用のクライアントライブラリ、後者はコンテナ(サービス)とそれぞれインストールしているものが違うから。
+
+```Dockerfile:Dockerfile
+# 誤
+RUN pip install Flask==0.10.1 uWSGI==2.0.19 requests==2.0.8 redis==2.5.1
+
+# 正
+RUN pip install Flask==0.10.1 uWSGI==2.0.19 requests==2.10.0 redis==3.0.0
+```
+
+```yml:docker-composer.yml
+# 誤
+redis:
+    image: redis:3.0
+
+# 正
+redis:
+    image: redis:latest
+```
+![出力結果]()
 
 # 参考
 
