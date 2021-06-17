@@ -151,7 +151,7 @@ root@cowsay:/# /usr/games/fortune | /usr/games/cowsay -f tux
 ```terminal:terminal
 $ docker run --rm -it xaviervia/pokemonsay 'Hello World!'
 ```
-ランダムでポケモンが出てきた。かわいい:fire::fire:<br>
+ランダムでポケモンが出てきた。かわいい:fire:<br>
 ![スクリーンショット 2021-06-16 18.56.06.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1645942/fe85cb79-4cc9-288b-c25a-0ba5db4bf9e7.png)
 
 # Chapter6 シンプルWebアプリケーションを作成する回
@@ -175,7 +175,7 @@ redis:
 redis:
     image: redis:latest
 ```
-入力情報から一意にモンスターを生成してくれるAPI「dnmonster」を使用したサンプルでした。かわいい:space_invader::space_invader:<br>
+入力情報から一意にモンスターを生成してくれるAPI「dnmonster」を使用したサンプルでした。かわいい:space_invader:<br>
 ![出力結果](dnmonster.JPG)
 
 # 参考
