@@ -174,8 +174,8 @@ redis:
 redis:
     image: redis:latest
 ```
-ちなみにDockerfileとdocker-composer.ymlでライブラリのバージョン表記が違うのは、前者はPython用のクライアントライブラリ、後者はコンテナ(サービス)とそれぞれインストールしているものが違うから。<br>
-入力情報から一意にモンスターを生成してくれるAPI「dnmonster」を使用したサンプルでした。かわいい:space_invader:<br>
+ちなみに`Dockerfile`と`docker-composer.yml`でライブラリのバージョン表記が違うのは、前者はPython用のクライアントライブラリ、後者はコンテナ(サービス)とそれぞれインストールしているものが違うから。<br>
+入力情報から一意にモンスターを生成してくれるAPI[dnmonster](https://github.com/amouat/dnmonster)を使用したサンプルでした。かわいい:space_invader:<br>
 ![出力結果](dnmonster.JPG)
 
 # 参考
