@@ -172,7 +172,7 @@ redis:
 
 # 正
 redis:
-    image: redis:6.2
+    image: redis:6.2.4
 ```
 #### なんで指定しているバージョンが違うの？
 `Dockerfile`と`docker-composer.yml`でライブラリのバージョン表記が違うのは、前者はPython用のクライアントライブラリ、後者はコンテナ(サービス)とそれぞれインストールしているものが違うから。
