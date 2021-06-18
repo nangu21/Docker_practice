@@ -172,12 +172,17 @@ redis:
 
 # 正
 redis:
-    image: redis:latest
+    image: redis:6.2
 ```
-ちなみに`Dockerfile`と`docker-composer.yml`でライブラリのバージョン表記が違うのは、前者はPython用のクライアントライブラリ、後者はコンテナ(サービス)とそれぞれインストールしているものが違うから。<br>
-入力情報から一意にモンスターを生成してくれるAPI[dnmonster](https://github.com/amouat/dnmonster)を使用したサンプルでした。かわいい:space_invader:<br>
+#### なんで指定しているバージョンが違うの？
+`Dockerfile`と`docker-composer.yml`でライブラリのバージョン表記が違うのは、前者はPython用のクライアントライブラリ、後者はコンテナ(サービス)とそれぞれインストールしているものが違うから。
+
+#### latestタグは非推奨？
+Dockerは何も指定しない場合デフォルトで`latest`タグがつく。しかしこれはバージョンの自動更新を強制するものではないため、イメージをpullする際も公開する際もバージョンを明示することが推奨されている。
+
+#### 出力結果
 ![出力結果](dnmonster.JPG)
 
 # 参考
-
-https://www.oreilly.co.jp/books/9784873117768/
+- https://www.oreilly.co.jp/books/9784873117768/
+- https://cloud.ibm.com/docs/Registry?topic=Registry-troubleshoot-docker-latest&locale=ja
