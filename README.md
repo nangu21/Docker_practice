@@ -198,7 +198,7 @@ Dockerは何も指定しない場合デフォルトで`latest`タグがつく。
 $ curl -s https://laravel.build/<アプリ名> | bash
 ```
 アプリの作成とsailのインストールは同時に行われる。
-これで`mysql`・`redis`・`meilisearch`・`selenium`・`mailhog`がデフォルトで利用できるようになりますが、`with`クエリを使って
+これで`mysql`・`redis`・`meilisearch`・`selenium`・`mailhog`がデフォルトで利用できるようになるが、`with`クエリを使って
 
 ```
 mysql
