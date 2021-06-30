@@ -1,5 +1,6 @@
 # Dockerの練習
-オライリー『Docker』のサンプルコードエラーまとめ。
+- オライリー『Docker』のサンプルコードエラーまとめ
+- Docker Sailについて
 
 # Chapter3.3 Dockerfileからcowsayイメージを構築する回
 FROMで指定しているベースイメージ[debian](https://www.debian.org/)のバージョンが古いせいでエラーが出た。`wheezy`はサポートが終了しているので、現在の安定版`buster`に変更。
@@ -186,3 +187,121 @@ Dockerは何も指定しない場合デフォルトで`latest`タグがつく。
 # 参考
 - https://www.oreilly.co.jp/books/9784873117768/
 - https://cloud.ibm.com/docs/Registry?topic=Registry-troubleshoot-docker-latest&locale=ja
+
+# Laravel Sailについて
+# 新規Laravelアプリの作成とSailのインストール
+
+```terminal:terminal
+$ curl -s https://laravel.build/<アプリ名> | bash
+```
+アプリの作成とsailのインストールは同時に行われる。
+これで`mysql`・`redis`・`meilisearch`・`selenium`・`mailhog`がデフォルトで利用できるようになりますが、`with`クエリを使って
+
+```
+mysql
+pgsql
+mariadb
+redis
+memcached
+meilisearch
+selenium
+mailhog
+```
+
+から使いたいサービスを個別指定することも可能。
+
+```terminal:mysqlとredisを指定する例
+$ curl -s "https://laravel.build/example-app?with=mysql,redis" | bash
+```
+
+#既存のLaravelアプリにSailをインストールする場合
+
+```terminal:terminal
+$ composer require laravel/sail --dev
+$ php artisan sail:install
+```
+
+# アプリの起動
+```terminal:terminal
+$ cd <Laravelアプリ>
+$ ./vendor/bin/sail up -d
+```
+
+`http://localhost/`にアクセスするとLaravelの初期画面が、`http://localhost:8025`にアクセスするとMailHogが表示される。Sailをバックグラウンドで起動するにはデタッチの`-d`オプションを追加。
+
+# エイリアス設定
+呼び出し時に毎回`./vendor/bin/sail`と入力するのが面倒なので、エイリアスを設定。
+
+```terminal:bashシェルの場合
+$ alias sail='./vendor/bin/sail'
+$ source ~/.bash_profile
+```
+
+```terminal:zshシェルの場合
+$ alias sail='./vendor/bin/sail'
+$ source ~/.zshrc
+```
+
+# コマンド実行
+
+```terminal:artisanコマンド
+$ sail artisan make:controller コントローラ名
+```
+
+```terminal:phpコマンド
+$ sail php --version
+```
+
+```terminal:composerコマンド
+$ sail composer require ベンダー名/パッケージ名
+```
+
+```terminal:nodeコマンド
+$ sail node --version
+```
+
+```terminal:npmコマンド
+$ sail npm run dev
+```
+
+```terminal:phpunitコマンド
+$ sail test 
+```
+
+# 例：Vueのセットアップ
+
+コンテナ起動、停止以外は普段通り。
+
+```terminal:terminal
+laravel/uiのダウンロード
+$ sail composer require --dev laravel/ui #この時点でresources/js/components以下にvueコンポーネントが設置される
+
+vueの認証スカフォールドの生成
+$ sail artisan ui vue --auth #認証機能をつけたい場合(ちなみにlaravelはjetstreamを推奨してます)
+
+パッケージのインストール
+$ sail npm install
+
+ビルド
+$ sail npm run dev #または sail npm run watchで自動コンパイル
+```
+
+# アプリ(コンテナ)の停止
+
+```terminal:terminal
+$ sail down #または'Ctr + C'
+```
+
+# おわりに
+
+```terminal:terminal
+$ curl -s https://laravel.build/<アプリ名> | bash
+$ ./vendor/bin/sail up
+```
+
+の2行で開発環境構築が完了した。めちゃくちゃ便利。
+
+# 参考
+
+https://laravel.com/docs/8.x/sail
+https://qiita.com/terufumi1122/items/1bbb1cf96e376e30e9fc
