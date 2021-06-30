@@ -188,6 +188,9 @@ Dockerは何も指定しない場合デフォルトで`latest`タグがつく。
 - https://www.oreilly.co.jp/books/9784873117768/
 - https://cloud.ibm.com/docs/Registry?topic=Registry-troubleshoot-docker-latest&locale=ja
 
+<br>
+<br>
+
 # Laravel Sailについて
 # 新規Laravelアプリの作成とSailのインストール
 
